@@ -1,0 +1,30 @@
+
+package calculadora;
+
+public class BasicSalaryCalculator {
+
+	private double basicSalary;
+
+	public double getBasicSalary() {
+		return this.basicSalary;
+	}
+
+	public void setBasicSalary(double basicSalary) {
+		if (basicSalary < 0) {
+			throw new IllegalArgumentException("Negative salary is invalid.");
+		}
+		this.basicSalary = basicSalary;
+	}
+
+	public double getGrossSalary() {
+		return this.basicSalary + this.getSocialInsurance() + this.getAdditionalBonus();
+	}
+
+	public double getSocialInsurance() {
+		return this.basicSalary * 25 / 100;
+	}
+
+	public double getAdditionalBonus() {
+		return this.basicSalary / 10;
+	}
+}
